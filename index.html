@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>برای پسر کوچولوی نادیا 🩵</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ستاره های بالای صفحه -->
+    <div class="stars">
+        ✦　⋆　✧　⋆　✦
+    </div>
+
+
+    <!-- ابرها -->
+    <div class="cloud cloud1">☁️</div>
+    <div class="cloud cloud2">☁️</div>
+
+
+    <!-- کارت اصلی -->
+    <main class="card">
+
+        <div class="heart">
+            🩵
+        </div>
+
+
+        <h1 id="title">
+            تولدت مبارک 🎂
+        </h1>
+
+
+        <h2>
+            پسر کوچولوی نادیا 🧸
+        </h2>
+
+
+        <p id="intro">
+            یه سورپرایز کوچولو برای یه آدم خاص...
+        </p>
+
+
+        <!-- شمارشگر -->
+        <div id="countdown">
+
+            <div>
+                <span id="days">00</span>
+                <small>روز</small>
+            </div>
+
+            <div>
+                <span id="hours">00</span>
+                <small>ساعت</small>
+            </div>
+
+            <div>
+                <span id="minutes">00</span>
+                <small>دقیقه</small>
+            </div>
+
+            <div>
+                <span id="seconds">00</span>
+                <small>ثانیه</small>
+            </div>
+
+        </div>
+
+
+        <!-- کادوی تولد -->
+        <div class="gift-box" onclick="openGift()">
+            🎁
+        </div>
+
+        <p id="giftText">
+            روی کادو بزن 👀🩵
+        </p>
+
+
+        <!-- پیام تولد -->
+        <div id="message">
+
+            <div class="gift">
+                🎂
+            </div>
+
+            <h2>
+                هی آقای کوچولو! 😂🩵
+            </h2>
+
+            <p>
+                تولدت مبارک باشه!
+                <br>
+                بالاخره یه سال دیگه هم بزرگ شدی...
+                <br>
+                ولی برای نادیا هنوز همون
+                <b>پسر کوچولوی ناز</b>ی 😌🩵
+                <br><br>
+                همیشه بخند، همیشه خوشحال باش
+                و همیشه همین‌قدر دوست‌داشتنی بمون. 🫠🩵
+            </p>
+
+            <div class="hearts">
+                🩵 🤍 🩵 🤍 🩵
+            </div>
+
+        </div>
+
+
+        <!-- آسمان شب -->
+        <div class="night-sky">
+
+            <div class="moon">
+                🌙
+            </div>
+
+
+            <div class="stars-night">
+                ✦　⋆　✧　⋆　✦　⋆　✧　✦
+            </div>
+
+
+            <h2>
+                یه چیزی بین این همه ستاره برای توئه... 🩵
+            </h2>
+
+
+            <p>
+                یه ستاره رو انتخاب کن 👀✨
+            </p>
+
+
+            <!-- ستاره های قابل کلیک -->
+            <div class="star-buttons">
+
+                <span onclick="starMessage(1)">
+                    ⭐
+                </span>
+
+                <span onclick="starMessage(2)">
+                    ⭐
+                </span>
+
+                <span onclick="starMessage(3)">
+                    ⭐
+                </span>
+
+            </div>
+
+
+            <!-- پیام ستاره -->
+            <div id="starMessage"></div>
+
+        </div>
+
+    </main>
+
+
+    <!-- حباب ها -->
+    <div id="bubbles"></div>
+
+
+    <div class="bottom">
+        Made with love by Nadia 🩵
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- JavaScript -->
+    <!-- ========================= -->
+
+    <script>
+
+
+        /* شمارشگر */
+
+        function countdown() {
+
+            let now = new Date();
+
+            let year = now.getFullYear();
+
+            let birthday =
+                new Date(year, 8, 13, 0, 0, 0);
+
+
+            if (now >= birthday) {
+
+                showBirthday();
+
+            }
+
+
+            else {
+
+                let difference =
+                    birthday - now;
+
+
+                let days =
+                    Math.floor(
+                        difference /
+                        (1000 * 60 * 60 * 24)
+                    );
+
+
+                let hours =
+                    Math.floor(
+                        (difference /
+                        (1000 * 60 * 60)) % 24
+                    );
+
+
+                let minutes =
+                    Math.floor(
+                        (difference /
+                        (1000 * 60)) % 60
+                    );
+
+
+                let seconds =
+                    Math.floor(
+                        (difference / 1000) % 60
+                    );
+
+
+                document.getElementById("days").innerText =
+                    days;
+
+                document.getElementById("hours").innerText =
+                    hours;
+
+                document.getElementById("minutes").innerText =
+                    minutes;
+
+                document.getElementById("seconds").innerText =
+                    seconds;
+
+            }
+
+        }
+
+
+
+        /* حالت تولد */
+
+        function showBirthday() {
+
+            document.getElementById("countdown").style.display =
+                "none";
+
+            document.getElementById("intro").style.display =
+                "none";
+
+            document.body.classList.add("birthday-mode");
+
+        }
+
+
+
+        /* باز کردن کادو */
+
+        function openGift() {
+
+            document
+                .querySelector(".gift-box")
+                .classList.add("opened");
+
+
+            document.getElementById("giftText").innerText =
+                "وااای بازش کردییی 😂🎁🩵";
+
+
+            setTimeout(function() {
+
+                document.getElementById("message").style.display =
+                    "block";
+
+            }, 700);
+
+        }
+
+
+
+        /* حباب ها */
+
+        function createBubble() {
+
+            let bubble =
+                document.createElement("div");
+
+
+            bubble.className =
+                "bubble";
+
+
+            bubble.innerText =
+                "🫧";
+
+
+            bubble.style.left =
+                Math.random() * 100 + "vw";
+
+
+            bubble.style.animationDuration =
+                (3 + Math.random() * 4) + "s";
+
+
+            document
+                .getElementById("bubbles")
+                .appendChild(bubble);
+
+
+            setTimeout(function() {
+
+                bubble.remove();
+
+            }, 7000);
+
+        }
+
+
+        setInterval(createBubble, 400);
+
+
+
+        /* ستاره ها */
+
+        function starMessage(number) {
+
+            let message = "";
+
+
+            if (number == 1) {
+
+                message =
+                    "این یکی برای لبخندته 🩵✨";
+
+            }
+
+
+            if (number == 2) {
+
+                message =
+                    "این یکی برای تمام لحظه‌های قشنگمونه 🌙🩵";
+
+            }
+
+
+            if (number == 3) {
+
+                message =
+                    "و این یکی فقط مخصوص پسر کوچولوی نادیاست 😌⭐🩵";
+
+            }
+
+
+            document.getElementById("starMessage").innerText =
+                message;
+
+        }
+
+
+
+        /* شروع شمارشگر */
+
+        setInterval(countdown, 1000);
+
+        countdown();
+
+
+    </script>
+
+</body>
+
+</html>
